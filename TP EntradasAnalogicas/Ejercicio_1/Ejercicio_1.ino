@@ -15,10 +15,10 @@ void setup()
 
 void loop() 
 {
-  int lecturaAnalog_0;
-  int lecturaAnalog_1;
-  int tension_0;
-  int tension_1;
+  float lecturaAnalog_0;
+  float lecturaAnalog_1;
+  float tension_0;
+  float tension_1;
 
   lecturaAnalog_0 = analogRead(PRT);
   lecturaAnalog_1 = analogRead(POTE);
@@ -43,7 +43,7 @@ void loop()
     digitalWrite(LED_0, LOW);
   }
 
-  if (tension_1 == tension_0)
+  if (tension_1 > (tension_0 - 0.2) && tension_1 < (tension_0 + 0.2))
   {
     digitalWrite(LED_1, HIGH);
     digitalWrite(LED_0, HIGH);
