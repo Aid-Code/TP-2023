@@ -1,4 +1,4 @@
-#define TEMP A1
+#define TEMP A0
 #define LED 4
 
 void setup() 
@@ -13,17 +13,19 @@ void setup()
 
 void loop() 
 {
-  int lecturaAnalog;
-  int tension;
-  int temperatura;
+  float lecturaAnalog;
+  float tension;
+  float temperatura;
 
   lecturaAnalog = analogRead(TEMP);
   tension = lecturaAnalog * 5 / 1023;
   temperatura = tension * 50 / 5;
-  if (tension == 0)
+  if (tension > 0 - 0.2 && tension < 0 + 0.2)
   {
     temperatura = -10;
   }
+
+  Serial.println(temperatura);
   
   if (temperatura <= 10)
   {
