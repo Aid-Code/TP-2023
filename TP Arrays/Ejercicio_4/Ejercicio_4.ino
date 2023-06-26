@@ -1,7 +1,9 @@
 #define CANT 5
 
+void sortMaxToMin(int *vec, int cant_elem);
+
 int vector[CANT];
-String lectura;}
+String lectura;
 bool flag;
 
 void setup() 
@@ -13,22 +15,25 @@ void loop()
 {
   for (int i; i < CANT; i++)
   {
-    lectura = Serial.readString();
-    vector[i] = lectura.parseInt();
+    vector[i] = Serial.parseInt();
   }
 
-  sortMaxToMin(vector[], CANT);
+  sortMaxToMin(*vector, CANT);
 }
 
-void sortMaxToMin(int *array, int size)
+void sortMaxToMin(int *vec, int cant_elem)
 {
   while (flag)
   {
-    for (int i; i < CANT + 1; i++)
+    for (int i; i < cant_elem + 1; i++)
     {
       if (vec[i] > vec[i+1])
       {
         vec[i] = vec[i+1];
+      }
+      else
+      {
+        flag = false;
       }
     }
   }
